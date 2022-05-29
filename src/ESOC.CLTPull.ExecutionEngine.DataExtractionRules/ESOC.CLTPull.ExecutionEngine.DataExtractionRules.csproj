@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ESOC.CLT.ExecutionEngine.Infrastructure.Data\ESOC.CLT.ExecutionEngine.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\ESOC.CLTPull.ExecutionEngine.Core\ESOC.CLTPull.ExecutionEngine.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Oracle\" />
+  </ItemGroup>
+
+</Project>

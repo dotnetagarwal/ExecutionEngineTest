@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ESOC.CLTPull.ExecutionEngine.Core\ESOC.CLTPull.ExecutionEngine.Core.csproj" />
+    <ProjectReference Include="..\ESOC.CLTPull.ExecutionEngine.ResultProcessing\ESOC.CLTPull.ExecutionEngine.ResultProcessing.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ControlExecutionEvent>
+  <ControlInformation>
+    <ControlId>C123</ControlId>
+    <ControlType>FileLevel</ControlType>
+    <ControlType>Recordevel</ControlType>
+    <ControlType>Timeliness</ControlType>
+    <Parent>
+      <ControlId></ControlId>
+      <Status></Status>
+    </Parent>
+  </ControlInformation>
+  <LHS>
+    <AdapterInformation>
+      <AdapterType>
+        <Sql>
+          <ServerName></ServerName>
+          <DatabaseName></DatabaseName>
+          <UserName></UserName>
+          <port></port>
+          <Password></Password>
+          <DataFetchRules>
+            <LookbackDate>-2</LookbackDate>
+            <Query>
+              Select Count(*) from table1 where CreatedDate = {0}  <!--DateDiff(Gatedate(),-2)-->
+              <Params>
+                <Param>13-04-2010</Param>
+                <Param></Param>
+              </Params>
+            </Query>
+            <!--Can we -->
+          </DataFetchRules>
+        </Sql>
+      </AdapterType>
+    </AdapterInformation>
+    <LHSResult>
+        <!--This can be directly filled by Parent Control Results as well-->
+        <ResultSetStructure></ResultSetStructure>
+        <!--Can we pass json as a type-->
+        <!--And We can see if we can use dynamic type here-->
+    </LHSResult>
+  </LHS>
+  <RHS>
+    <AdapterInformation>
+      <AdapterType>
+        <NAS>
+          <UserName></UserName>
+          <Password></Password>
+          <FolderPaths>
+            <FolderPath></FolderPath>
+            <FolderPath></FolderPath>
+          </FolderPaths>
+
+          <!--Regex Pattern, Could be multiple Folders you need to search-->
+          <FileIdentification>
+            <Time>
+              <FileFromDate></FileFromDate>
+              <FileToDate></FileToDate>
+              <TimeSpanInHours></TimeSpanInHours>
+              <LookbackDate></LookbackDate>
+            </Time>
+            <FileNamePattern></FileNamePattern>
+            <FileAttributes>
+              <LastModifiedDate></LastModifiedDate>
+              <FileArrivalTime></FileArrivalTime>
+            </FileAttributes>
+          </FileIdentification>
+          <DataFetchRules>
+            <FileRules>
+              <IsDownloadFile>Yes</IsDownloadFile>
+              <IsInZipFormat>Yes</IsInZipFormat>
+              <GetFileCount>Yes</GetFileCount>
+              <FileDataSerachPattern>*Success*</FileDataSerachPattern>
+              <GetRowCount>Yes</GetRowCount>
+            </FileRules>
+          </DataFetchRules>
+        </NAS>
+      </AdapterType>
+    </AdapterInformation>
+    <RHSResult>
+        <!--This can be directly filled by Parent Control Results as well-->
+        <ResultSetStructure>
+        <!--Can we pass json as a type-->
+        <!--And We can see if we can use dynamic type here-->
+        <Files>
+          <FileCount></FileCount>
+          <File>
+            <ParentName></ParentName>
+            <!--Zip File Name-->
+            <FileArrivalTime></FileArrivalTime>
+            <FileModifedDate></FileModifedDate>
+            <TimeZones></TimeZones>
+            <!--Phase2-->
+            <Name></Name>
+            <RecordCount></RecordCount>
+          </File>
+        </Files>
+        </ResultSetStructure>     
+    </RHSResult>
+  </RHS>
+</ControlExecutionEvent>

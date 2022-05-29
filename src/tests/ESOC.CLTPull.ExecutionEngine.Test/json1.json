@@ -1,0 +1,33 @@
+{
+  "Name": "ContrlExecutionEvent",
+  "ControlId": "120345CLT",
+  "Sources": [
+    {
+      "Type": "lhs",
+      "Name": "Oracle",
+      "DataSourceName": "Oracle",
+      "HostName": "ep09-scan01.uhc.com",
+      "Port": 1521,
+      "Service": "edbpr03.uhc.com",
+      "User": "SOC_SA",
+      "Password": "AUG0809sep@2021",
+      "Queries": [
+        { "QueryString": "select a.ctl_tot, b.data_fl_nm, b.LOAD_END_DTM from ctl_tot a, fl_load b where a.fl_load_id in (select fl_load_id from fl_load where data_fl_nm like '%cdm_brms_rfrdcasests%' and trunc(cre_dttm) = '03-FEB-2020') and a.ctl_tot_typ_cd = 53 and a.FL_LOAD_ID = b.FL_LOAD_ID" }
+      ]
+    },
+    {
+      "Type": "rhs",
+      "Name": "Oracle",
+      "DataSourceName": "Oracle",
+      "HostName": "ep09-scan01",
+      "Port": 1521,
+      "Service": "brspr01.uhc.com",
+      "User": "SOC_SA",
+      "Password": "AUG0809sep@2021",
+      "Queries": [
+        { "QueryString": "select count(*) from cisadm.cm_inbound_message where cm_inbound_msg_type_cd='CM-CDMREFCASE' and trunc(cre_dttm) = '03-FEB-2020'" }
+      ]
+    }
+  ]
+}
+

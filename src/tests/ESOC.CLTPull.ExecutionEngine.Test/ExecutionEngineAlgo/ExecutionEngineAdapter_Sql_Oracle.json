@@ -1,0 +1,88 @@
+{
+  "ControlExecutionEvent": {
+    "ControlInformation": {
+      "ControlId": "C123",
+      "ControlType": [
+        "FileLevel",
+        "Recordevel",
+        "Timeliness"
+      ],
+      "Parent": {
+        "ControlId": "",
+        "Status": ""
+      }
+    },
+
+    "LHS": {
+      "AdapterInformation": {
+        "AdapterType": {
+          "Sql": {
+            "ServerName": "ep09-scan01.uhc.com",
+            "DatabaseName": "",
+            "UserName": "SOC_SA",
+            "port": "1521",
+            "Password": "AUG0809sep@2021",
+            "DataFetchRules": {
+              "LookbackDate": "-2",
+              "Query": {
+                "Params": {
+                  "Param": [
+                    "13-04-2010",
+                    ""
+                  ]
+                },
+                "Text": "select a.ctl_tot, b.data_fl_nm, b.LOAD_END_DTM from ctl_tot a, fl_load b where a.fl_load_id in (select fl_load_id from fl_load where data_fl_nm like '%cdm_brms_rfrdcasests%' and trunc(cre_dttm) = '03-FEB-2020') and a.ctl_tot_typ_cd = 53 and a.FL_LOAD_ID = b.FL_LOAD_ID"
+              }
+            }
+          }
+        }
+      },
+      "LHSResult": {
+        "ResultSetStructure": {
+          "FileName": "BCG",
+          "RecordCount": "25"
+        }
+      }
+    },
+    "RHS": {
+      "AdapterInformation": {
+        "AdapterType": {
+          "Oracle": {
+            "ServerName": "ep09-scan01.uhc.com",
+            "DatabaseName": "",
+            "UserName": "SOC_SA",
+            "port": "1521",
+            "Password": "AUG0809sep@2021",
+            "DataFetchRules": {
+              "LookbackDate": "-2",
+              "Query": {
+                "Params": {
+                  "Param": [
+                    "13-04-2010",
+                    ""
+                  ]
+                },
+                "Text": "select a.ctl_tot, b.data_fl_nm, b.LOAD_END_DTM from ctl_tot a, fl_load b where a.fl_load_id in (select fl_load_id from fl_load where data_fl_nm like '%cdm_brms_rfrdcasests%' and trunc(cre_dttm) = '03-FEB-2020') and a.ctl_tot_typ_cd = 53 and a.FL_LOAD_ID = b.FL_LOAD_ID"
+              }
+            }
+          }
+        }
+      },
+      "RHSResult": {
+        "ResultSetStructure": {
+          "Files": {
+            "FileCount": "",
+            "File": {
+              "ParentName": "Parent",
+              "FileArrivalTime": "",
+              "FileModifedDate": "",
+              "TimeZones": "",
+              "Name": "ABC",
+              "RecordCount": "10"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.27" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="3.21.50" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ESOC.CLTPull.ExecutionEngine.Alerting\ESOC.CLTPull.ExecutionEngine.Alerting.csproj" />
+    <ProjectReference Include="..\ESOC.CLTPull.ExecutionEngine.Core\ESOC.CLTPull.ExecutionEngine.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AxisImpersonate">
+      <HintPath>..\..\CommonReferences\AxisImpersonate.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

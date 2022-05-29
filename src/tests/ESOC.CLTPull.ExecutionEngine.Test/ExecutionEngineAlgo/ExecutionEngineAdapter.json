@@ -1,0 +1,110 @@
+{
+    "ControlInformation": {
+      "ControlId": "BRES0077E",
+      "ControlType": "RecordLevel",
+      "ControlDescription": "RECONCILIATION CONTROL - LETTERS FOR CIRRUS CUSTOMERS BETWEEN BRMS AND SHUTTERFLY",
+      "LookBackDate": "-6",
+      "Parent": {
+        "ControlId": "",
+        "Status": ""
+      }
+    },
+
+    "LHS": {
+      "ApplicationName": "BRMS",
+      "AdapterInformation": {
+        "AdapterType": {
+          "Oracle": {
+            "ServerName": "ep25-scan01.uhc.com",
+            "DatabaseName": "brspr01svc.uhc.com",
+            "UserName": "soc_sa",
+            "port": "1521",
+            "Password": "AUG0809sep@2021",
+            "DataFetchRules": {
+              "LookbackDate": "-6",
+              "Query": {
+                "Params": {
+                  "Param": [
+                    "@Date"
+                  ]
+                },
+                "Text": "select CC_ID from CISADM.CI_CC where TRUNC(LETTER_PRINT_DTTM)='@Date' and CONTACT_METH_FLG='POST' and BATCH_CD ='CM-CRPRT' and BATCH_NBR in (select max(batch_NBR) from cisadm.ci_cc where TRUNC(LETTER_PRINT_DTTM)='@Date' and BATCH_CD= 'CM-CRPRT')"
+              }
+            }
+          }
+        }
+      }
+    },
+    "RHS": {
+      "ApplicationName": "Shutterfly",
+      "AdapterInformation": {
+        "AdapterType": {
+          "NAS": {
+            "UserName": "",
+            "Password": "",
+            "FolderPaths": {
+              "FolderPath": [
+                "\\\\NAS01402pn\\Data\\SOC India Share\\BRMS_FeedbackFile_Shutterfly_PRD"
+              ]
+            },
+            "FileIdentification": {
+              "Time": {
+                "FileFromDate": "-6",
+                "FileToDate": "0",
+                "TimeSpanInHours": "",
+                "LookbackDate": "-6"
+              },
+              "FileNamePattern": {
+                "Absolute": [
+                  "BRMSFeedbackFile_"
+                ],
+                "DatePattern": "yyyyMMdd"
+
+              },
+              "FileAttributes": {
+                "LastModifiedDate": "",
+                "FileArrivalTime": ""
+              },
+              "FileType": {
+                "CSV": {
+                  "ColumnName": "Invoice/Statement Number"
+
+                }
+              }
+            },
+            "DataFetchRules": {
+              "FileRules": {
+                "IsDownloadFile": "No",
+                "IsInZipFormat": "No",
+                "GetFileCount": "Yes",
+                "FileDataSerachPattern": "*Success*",
+                "GetRowCount": "Yes"
+              }
+            }
+          }
+        }
+      }
+    },
+    "BusinessRules": {
+      "RecordLevel": {
+        "Green": {
+          "Rules": [
+            { "Name": "TotalCountMatched" },
+            { "Name": "RecordByRecordComparison" }
+          ]
+        },
+        "Red": {
+          "Rules": [
+            { "Name": "IsLhsEmpty" },
+            { "Name": "IsRhsEmpty" },
+            { "Name": "CountNotMatched" }
+          ]
+        },
+        "Yellow": {
+          "Rules": [
+            { "Name": "IsFileFound" }
+          ]
+        }
+      }
+    }
+}

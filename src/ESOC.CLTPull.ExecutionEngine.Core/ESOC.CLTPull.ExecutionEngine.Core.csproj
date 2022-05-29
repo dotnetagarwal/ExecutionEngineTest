@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <Compile Remove="Contracts\IFileHelper.cs" />
+    <Compile Remove="Contracts\IOracleRepository.cs" />
+    <Compile Remove="Contracts\ISqlHelper.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Cronos" Version="0.7.0" />
+    <PackageReference Include="ESOC.CLTPULL.KafkaEventBus" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entities\ExecutionEngine\ControlConfiguration\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AxisImpersonate">
+      <HintPath>..\..\..\ESOC.CLTPull.ExecutionEngine\CommonReferences\AxisImpersonate.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dynamitey" Version="2.0.10.189" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="3.1.3" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    <PackageReference Include="Moq" Version="4.16.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="xunit" Version="2.4.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+    <PackageReference Include="coverlet.collector" Version="1.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\ESOC.CLT.ExecutionEngine.Infrastructure.Data\ESOC.CLT.ExecutionEngine.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\..\ESOC.CLTPull.ExecutionEngine.API\ESOC.CLTPull.ExecutionEngine.API.csproj" />
+    <ProjectReference Include="..\..\ESOC.CLTPull.ExecutionEngine.Core\ESOC.CLTPull.ExecutionEngine.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ExecutionEngineAlgo\ExecutionEngineAdapter_Sql_Oracle.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ExecutionEngineAlgo\ExecutionEngineAdapter.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
